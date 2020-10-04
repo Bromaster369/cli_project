@@ -19,6 +19,12 @@ class CLI
         print_makes(makes)        
         puts ""
         puts "Type a number listed to see more details or type 'exit' to exit"
+        puts ""
+        inp = gets.strip.downcase 
+        while inp != 'exit' do 
+            
+        #    Make.find_by_make_id(@make)
+        end 
     end 
    
     def print_makes(makes)

@@ -8,7 +8,7 @@ class API
         response = Net::HTTP.get(uri)
         makes = JSON.parse(response)["Results"]
         makes.each do |m|
-            Make.new(make_name: m["Make_Name"], make_model: m["Model_Name"])
+            Make.new(make_name: m["Make_Name"], make_model: m["Model_Name"], make_id: m["Make_ID"], model_id: m["Model_ID"])
             
         end 
     end 
