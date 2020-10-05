@@ -18,9 +18,13 @@ class Make
         @@all 
     end 
 
-   def self.find_by_model_id(model_id)
-    @@all.select {|m| m.model_id == model_id}
-    binding.pry
+   def self.find_by_make(make)
+    Make.all.select do |m| 
+        m.make_name.downcase == make 
+        
+
+    
+    end 
    end 
 
 end 
