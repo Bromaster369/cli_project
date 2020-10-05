@@ -12,6 +12,12 @@ class API
             
         end 
     end 
+
+
+    def self.get_make_details(make)
+
+        
+    end 
  
 
 

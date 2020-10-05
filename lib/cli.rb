@@ -22,8 +22,8 @@ class CLI
         puts ""
         inp = gets.strip.downcase 
         while inp != 'exit' do 
-            
-        #    Make.find_by_make_id(@make)
+            make =  Make.find_by_model_id(@make)[inp.to_i - 1]
+            API.get_make_details(make) 
         end 
     end 
    
