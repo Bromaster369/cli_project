@@ -15,8 +15,11 @@ class API
 
 
     def self.get_make_details(make)
-
-        
+        url = "https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleTypesForMakeId/#{make.make_id}?format=json"
+        uri = URI(url)
+        response = Net::HTTP.get(uri)
+        make = JSON.parse(response)["Results"]
+        binding.pry
     end 
  
 
