@@ -23,7 +23,7 @@ class CLI
         inp = gets.strip.downcase 
         while inp != 'exit' do 
             make =  Make.find_by_make(@make)[inp.to_i - 1]
-            API.get_make_details(make) 
+            API.get_make_id_details(make) 
         end 
     end 
    
@@ -32,7 +32,7 @@ class CLI
         puts "Here are #{@make} cars"
         puts ""
         makes.each.with_index(1) do |m, i|
-            puts "#{i}. #{m.make_name} #{m.make_model}"
+            puts "#{i}. #{m.name} #{m.model}"
         end 
     end  
 
