@@ -22,9 +22,11 @@ class CLI
         puts ""
         inp = gets.strip.downcase 
         while inp != 'exit' do 
-            binding.pry 
-            make =  Make.find_by_make(@make).makes[inp.to_i - 1]
-            API.get_make_id_details(make) 
+            
+            make =  Make.find_by_make(@make)[inp.to_i - 1]
+            API.get_make_details(make)
+            puts "Waiting for your input"
+        inp = gets.strip.downcase    
         end 
     end 
    

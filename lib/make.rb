@@ -3,7 +3,7 @@
 # save all makes created 
 
 class Make 
-    attr_accessor :name, :model, :make_id, :model_id  
+    attr_accessor :name, :model, :make_id, :model_id, :vehicle_type
     @@all = []
 
     def initialize(name:, model:, make_id:, model_id:)
@@ -11,6 +11,7 @@ class Make
         @model = model
         @make_id = make_id
         @model_id = model_id
+        @vehicle_type = []
         @@all << self 
     end 
 
