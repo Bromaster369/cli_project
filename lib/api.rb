@@ -6,12 +6,15 @@ class API
         url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/#{make}?format=json"
         uri = URI(url) 
         response = Net::HTTP.get(uri)
-        binding.pry
+        
         makes = JSON.parse(response)["Results"]
+        new_model = Model.new(make)
         makes.each do |m|
-            Make.new(name: m["Make_Name"], model: m["Model_Name"], make_id: m["Make_ID"], model_id: m["Model_ID"])
             
+            new_make = Make.new(name: m["Make_Name"], model: m["Model_Name"], make_id: m["Make_ID"], model_id: m["Model_ID"])
+            new_model.makes << new_make
         end 
+        binding.pry
     end 
 
 
