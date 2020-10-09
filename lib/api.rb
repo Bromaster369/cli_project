@@ -32,7 +32,7 @@ class API
        
     end
 
-    # def self.get_all_makes(make)
+    #  def self.get_all_makes(make)
         
     #     url = "https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json"
     

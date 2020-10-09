@@ -24,32 +24,42 @@ class CLI
         while inp != 'exit' do 
             if inp == 'list'
                 print_makes(Make.find_by_make(@make))
+                puts ""
+                puts "Type a number listed to see more details or type 'exit' to exit"
+                puts ""
+                
+                
+            
             elsif inp.to_i > 0 && inp.to_i <= Make.find_by_make(@make).length
             make =  Make.find_by_make(@make)[inp.to_i - 1]
            
             elsif
                 API.get_make_details(make)
                 print_make(make)
+            # elsif inp == 'make' 
+            #     promt_make
+            # else
+            #     !make.valid?(@make)
             
-            else 
-                print_make(Make.find(make)[0])
+            #     puts "I do not understand - please try again."
+            
+            #     if inp == 'make'
+            #             prompt_make
+            # else 
+            #     puts "I do not understand - please try again."
+            # else
+            #     print_make(Make.find(make)[0])
+            
+            # end
+            # elsif !inp == 'make'
+            #     prompt_make
+            # else 
+            #     puts "I do not understand - please try again."
             end 
-        # elsif inp == 'make'
-        #         prompt_make
-        # else 
-        #         puts "I do not understand - please try again."
-        # end
-        # puts "Please select another number or type 'exit' to exit"
-        prompt
-        inp = gets.strip.downcase  
+   
+            prompt
+            inp = gets.strip.downcase  
 
-            
-
-           
-            # puts ""
-            # puts "Please select another number or type 'exit' to exit"
-            # prompt
-            # inp = gets.strip.downcase    
         end 
         puts "Goodbye!"
     end 
@@ -82,7 +92,7 @@ class CLI
     def prompt
         puts ""
        
-        puts "OR type 'make' to search for a new make"
+        puts "Type 'make' to display details for make"
         puts "OR type 'list' to see the list again"
         puts "OR type 'exit' to exit"
         puts ""
