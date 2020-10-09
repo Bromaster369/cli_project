@@ -20,20 +20,34 @@ class API
 
     def self.get_make_details(make)
         
+        
         url = "https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleTypesForMakeId/#{make.make_id}?format=json"
+    
+
         uri = URI(url)
         response = Net::HTTP.get(uri)
-        mak = JSON.parse(response)["Results"]
+        data = JSON.parse(response)["Results"][0]
         
-        make.each do |m|
-            
-           mak.vehicle_type = m["VehicleTypeName"] 
-           binding.pry
-        end
-        
-        
-    end 
+        make.vehicle_type = data["VehicleTypeName"]
+       
+    end
 
+    # def self.get_all_makes(make)
+        
+    #     url = "https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json"
+    
+
+    #     uri = URI(url)
+    #     response = Net::HTTP.get(uri)
+    #     data = JSON.parse(response)["Results"]
+    #     binding.pry
+
+
+    # end 
+      
+        
+        
+  
     
  
 

@@ -11,7 +11,6 @@ class Make
         @model = model
         @make_id = make_id
         @model_id = model_id
-        @vehicle_type = []
         @@all << self 
     end 
 
@@ -22,11 +21,14 @@ class Make
    def self.find_by_make(make)
     Make.all.select do |m| 
         m.name.downcase == make 
-        
+    
+        # binding.pry
 
     
     end 
    end 
+
+
 
 end 
 
