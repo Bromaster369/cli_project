@@ -6,9 +6,9 @@ class CLI
 
     def start 
         puts ""
-        puts "Welcome to Car finder!"
+        puts "Welcome to vehicle finder!"
         puts ""
-        puts "Search for makes by entering a make's name"
+        puts "Search for makes by entering a valid make's name"
         puts ""
         @make = gets.strip.downcase 
         puts ""
@@ -31,30 +31,12 @@ class CLI
                 
             
             elsif inp.to_i > 0 && inp.to_i <= Make.find_by_make(@make).length
+                
             make =  Make.find_by_make(@make)[inp.to_i - 1]
            
-            elsif
+             
                 API.get_make_details(make)
                 print_make(make)
-            # elsif inp == 'make' 
-            #     promt_make
-            # else
-            #     !make.valid?(@make)
-            
-            #     puts "I do not understand - please try again."
-            
-            #     if inp == 'make'
-            #             prompt_make
-            # else 
-            #     puts "I do not understand - please try again."
-            # else
-            #     print_make(Make.find(make)[0])
-            
-            # end
-            # elsif !inp == 'make'
-            #     prompt_make
-            # else 
-            #     puts "I do not understand - please try again."
             end 
    
             prompt
@@ -89,25 +71,27 @@ class CLI
 
     end 
 
+    
+
     def prompt
         puts ""
        
-        puts "Type 'make' to display details for make"
-        puts "OR type 'list' to see the list again"
+        
+        puts "Type 'list' to see the list again"
         puts "OR type 'exit' to exit"
         puts ""
     end 
 
-    def prompt_make
-        puts ""
-        puts "Search for makes by entering a make"
-        puts ""
-        @make = gets.strip.downcase
-        puts ""
-        API.fetch_makes(@makes)
-        puts ""
-        makes = Make.find_by_make(@make)
-        print_makes(makes)
+    # def prompt_make
+    #     puts ""
+    #     puts "Search for makes by entering a make"
+    #     puts ""
+    #     @make = gets.strip.downcase
+    #     puts ""
+    #     API.fetch_makes(@makes)
+    #     puts ""
+    #     makes = Make.find_by_make(@make)
+    #     print_makes(makes)
 
-    end 
+    # end 
 end 

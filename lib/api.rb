@@ -4,16 +4,16 @@ class API
 
     def self.fetch_makes(make)
         url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/#{make}?format=json"
-        uri = URI(url) 
-        response = Net::HTTP.get(uri)
-        
-        makes = JSON.parse(response)["Results"]
-        
-        makes.each do |m|
+         uri = URI(url) 
+            response = Net::HTTP.get(uri)
             
-            new_make = Make.new(name: m["Make_Name"], model: m["Model_Name"], make_id: m["Make_ID"], model_id: m["Model_ID"])
+            makes = JSON.parse(response)["Results"]
             
-        end 
+            makes.each do |m|
+                
+                new_make = Make.new(name: m["Make_Name"], model: m["Model_Name"], make_id: m["Make_ID"], model_id: m["Model_ID"])
+                
+            end 
         
     end 
 
@@ -40,9 +40,10 @@ class API
     #     uri = URI(url)
     #     response = Net::HTTP.get(uri)
     #     data = JSON.parse(response)["Results"]
-    #     binding.pry
-
-
+    #     data.each do |m|
+                
+    #         new_make = Make.new(name: m["Make_Name"]
+    #     end 
     # end 
       
         
