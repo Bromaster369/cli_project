@@ -28,8 +28,6 @@ class CLI
                 puts "Type a number listed to see more details or type 'exit' to exit"
                 puts ""
                 
-                
-            
             elsif inp.to_i > 0 && inp.to_i <= Make.find_by_make(@make).length
                 
             make =  Make.find_by_make(@make)[inp.to_i - 1]
@@ -75,23 +73,8 @@ class CLI
 
     def prompt
         puts ""
-       
-        
         puts "Type 'list' to see the list again"
         puts "OR type 'exit' to exit"
         puts ""
     end 
-
-    # def prompt_make
-    #     puts ""
-    #     puts "Search for makes by entering a make"
-    #     puts ""
-    #     @make = gets.strip.downcase
-    #     puts ""
-    #     API.fetch_makes(@makes)
-    #     puts ""
-    #     makes = Make.find_by_make(@make)
-    #     print_makes(makes)
-
-    # end 
 end 

@@ -18,18 +18,12 @@ class Make
         @@all 
     end 
 
-   def self.find_by_make(make)
+    def self.find_by_make(make)
     Make.all.select do |m| 
         m.name.downcase == make 
-    
-        # binding.pry
-
-    
+     
+        end 
     end 
-   end 
-
-
-
 end 
 
 
